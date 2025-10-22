@@ -32,6 +32,16 @@ jobs:
             --reporters cli,junit \
             --reporter-junit-export results/junit-report.xml
 
+      - name: Install HTML Reporter
+        run: npm install -g newman-reporter-htmlextra
+
+      - name: Run Collection with HTML Report
+        run: |
+          newman run tests/my_collection.json \
+            -e tests/my_environment.json \
+            -r htmlextra \
+            --reporter-htmlextra-export results/report.html
+
       # Step 5: 上传测试报告（可选）
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
