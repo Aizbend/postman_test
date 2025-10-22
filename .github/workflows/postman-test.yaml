@@ -37,8 +37,8 @@ jobs:
 
       - name: Run Collection with HTML Report
         run: |
-          newman run tests/my_collection.json \
-            -e tests/my_environment.json \
+          newman run tests/test.postman_collection.json \
+            -e tests/测试环境.postman_environment.json \
             -r htmlextra \
             --reporter-htmlextra-export results/report.html
 
