@@ -1,0 +1,40 @@
+name: Run Postman API Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: 拉取代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: 安装 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step 3: 安装 Newman
+      - name: Install Newman
+        run: npm install -g newman
+
+      # Step 4: 运行测试集合
+      - name: Run Postman Collection
+        run: |
+          newman run tests/test.postman_collection1.json \
+            -e tests/测试环境.postman_environment.json \
+            --reporters cli,junit \
+            --reporter-junit-export results/junit-report.xml
+
+      # Step 5: 上传测试报告（可选）
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: postman-test-report
+          path: results/junit-report.xml

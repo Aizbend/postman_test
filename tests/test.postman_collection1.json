@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "1021f96f-60b2-4628-8d8d-9691d12c3187",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47334415",
+		"_collection_link": "https://cyc1973367580-6870035.postman.co/workspace/Aizbend-CYC's-Workspace~47dc40c2-de64-486b-8194-1decfea46ad7/collection/47334415-1021f96f-60b2-4628-8d8d-9691d12c3187?action=share&source=collection_link&creator=47334415"
+	},
+	"item": [
+		{
+			"name": "test",
+			"item": [
+				{
+					"name": "baidu",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.baidu.com/",
+							"protocol": "https",
+							"host": [
+								"www",
+								"baidu",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
