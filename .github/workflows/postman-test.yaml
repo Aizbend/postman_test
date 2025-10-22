@@ -27,7 +27,7 @@ jobs:
       # Step 4: 运行测试集合
       - name: Run Postman Collection
         run: |
-          newman run tests/test.postman_collection1.json \
+          newman run tests/test.postman_collection.json \
             -e tests/测试环境.postman_environment.json \
             --reporters cli,junit \
             --reporter-junit-export results/junit-report.xml

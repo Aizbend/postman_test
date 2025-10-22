@@ -11,17 +11,29 @@
 			"name": "test",
 			"item": [
 				{
-					"name": "login",
+					"name": "baidu",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
 									"pm.test(\r",
-									"    \"login_test\", function(){\r",
-									"        pm.expect(pm.response.text()).to.includes(\"登录成功\");\r",
+									"    \"baidu_test\",function(){\r",
+									"        pm.expect(pm.response.text()).to.include(\"百度一下\")\r",
 									"    }\r",
-									");"
+									")\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -30,35 +42,34 @@
 						}
 					],
 					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{username}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								}
-							]
-						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "www.baidu.com",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "192.168.31.130:6666/api/login",
+							"raw": "https://www.baidu.com/",
+							"protocol": "https",
 							"host": [
-								"192",
-								"168",
-								"31",
-								"130"
+								"www",
+								"baidu",
+								"com"
 							],
-							"port": "6666",
 							"path": [
-								"api",
-								"login"
+								""
 							]
 						}
 					},
